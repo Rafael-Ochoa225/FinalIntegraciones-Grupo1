@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <h2>Lista de Categorías</h2>
+  <button class="btn btn-primary mb-3">Agregar Categoría</button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let Categorias of CatetList; let i = index">
+        <td>{{ i + 1}}</td>
+        <td>{{ Categorias.name }}</td>
+        <td>{{ Categorias.desc}}</td>
+        <td>
+          <button class="btn btn-warning btn-sm me-2">Editar</button>
+          <button class="btn btn-danger btn-sm">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
