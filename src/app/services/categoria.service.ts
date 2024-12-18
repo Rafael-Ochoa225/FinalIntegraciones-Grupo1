@@ -22,7 +22,11 @@ export class CategoriaService {
     return this.http.post<catetList>(`${this.url}/registrar`, categorias);
   }
 
-  eliminarCate(id: number): Observable<void>{
-    return this.http.delete<void>(`${this.url}/`)
+  eliminarCate(name: string): Observable<void>{
+    return this.http.delete<void>(`${this.url}/eliminar/${name}`)
+  }
+
+  actualizarCate(id: string, categoria: catetList): Observable<catetList>{
+    return this.http.put<catetList>(`${this.url}/actualizar/{id}`, categoria)
   }
 }

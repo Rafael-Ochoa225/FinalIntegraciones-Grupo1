@@ -1,30 +1,54 @@
 <div class="container mt-4">
-    <h2>Lista de Clientes</h2>
-    <button class="btn btn-primary mb-3">Agregar Cliente</button>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Nombre</th>
-          <th>Email</th>
-          <th>Teléfono</th>
-          <th>DNI</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Nombre Cliente</td>
-          <td>email.com</td>
-          <td>123456789</td>
-          <td>98765432</td>
-          <td>
-            <button class="btn btn-warning btn-sm me-2">Editar</button>
-            <button class="btn btn-danger btn-sm">Eliminar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- Formulario de búsqueda -->
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Buscar Cliente por ID</h5>
+    </div>
+    <div class="card-body">
+      <form class="row g-3">
+        <div class="col-md-9">
+          <label for="clienteId" class="form-label">ID del Cliente</label>
+          <input 
+            #id 
+            type="text" 
+            id="clienteId" 
+            class="form-control" 
+            placeholder="Ingrese el ID del cliente">
+        </div>
+        <div class="col-md-3 d-flex align-items-end gap-3">
+          <button 
+            type="button" 
+            class="btn btn-primary w-100" 
+            (click)="buscarCliente(id.value)">
+            Buscar
+          </button>
+          <button 
+            type="button" 
+            class="btn btn-primary w-100" 
+            >
+            Agregar
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-  
+
+  <!-- Información del cliente -->
+  <div *ngIf="cliente" class="card mt-4 shadow-sm">
+    <div class="card-header bg-success text-white">
+      <h5 class="mb-0">Información del Cliente</h5>
+    </div>
+    <div class="card-body">
+      <p class="fs-5"><strong>Nombre:</strong> {{ cliente.name }}</p>
+      <p><strong>Correo Electrónico:</strong> {{ cliente.email }}</p>
+      <p><strong>Teléfono:</strong> {{ cliente.tel }}</p>
+      <p><strong>DNI:</strong> {{ cliente.dni }}</p>
+      <div class="col-md-3 d-flex align-items-end gap-3">
+      <button type="button" 
+      class="btn btn-success w-100" (click)="open()">Editar</button>
+      <button type="button" 
+      class="btn btn-danger w-100 ">Eliminar</button>
+    </div>
+    </div>
+  </div>
+  <app-cliente-list-modal *ngIf="isOpen"></app-cliente-list-modal>

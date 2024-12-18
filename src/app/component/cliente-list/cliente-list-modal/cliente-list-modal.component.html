@@ -1,0 +1,36 @@
+<!-- Modal para Editar Cliente -->
+<div id="editarClienteModal" tabindex="-1" aria-labelledby="editarClienteModalLabel" >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editarClienteModalLabel">Editar Cliente</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="formEditar">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nombre</label>
+              <input type="text" id="name" class="form-control" formControlName="name">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo Electrónico</label>
+              <input type="email" id="email" class="form-control" formControlName="email">
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Teléfono</label>
+              <input type="text" id="phone" class="form-control" formControlName="phone">
+            </div>
+            <div class="mb-3">
+              <label for="dni" class="form-label">DNI</label>
+              <input type="text" id="dni" class="form-control" formControlName="dni">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="actualizarCliente()">Guardar Cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

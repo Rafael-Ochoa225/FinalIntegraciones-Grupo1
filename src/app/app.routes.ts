@@ -16,8 +16,8 @@ import { OrdenesCreateComponent } from './component/ordenes-create/ordenes-creat
 import { OrdenesUpdateComponent } from './component/ordenes-update/ordenes-update.component';
 
 export const routes: Routes = [
-  { path: 'categoria', component: CategoriaListComponent},
-  { path: 'categoria-crear', component: CategoriasComponent},
+  { path: 'categoria-crear', component: CategoriaListComponent},
+  { path: 'categoria', component: CategoriasComponent},
   { path: 'categoria-update', component: CategoriaUpdateComponent},
   {path: 'platillos', component: PlatilloListComponent},
   {path: 'platillos-create', component: PlatilloCreateComponent},

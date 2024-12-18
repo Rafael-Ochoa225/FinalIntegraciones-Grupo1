@@ -17,7 +17,7 @@
         <td>{{ Categorias.desc}}</td>
         <td>
           <button class="btn btn-warning btn-sm me-2">Editar</button>
-          <button class="btn btn-danger btn-sm">Eliminar</button>
+          <button (click)="eliminarCategoria(Categorias.name)" class="btn btn-danger btn-sm">Eliminar</button>
         </td>
       </tr>
     </tbody>
