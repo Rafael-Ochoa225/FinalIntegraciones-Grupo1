@@ -1,27 +1,45 @@
-<div class="form-group">
-    <button type="button" class="btn btn-primary">
-      Ver Todos los Meseros
-    </button>
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Lista de Meseros</h5>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let mesero of meseros; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ mesero.firstname }} {{ mesero.lastname }}</td>
+            <td>{{ mesero.email }}</td>
+            <td>
+              <span
+                class="badge"
+                [class.bg-success]="mesero.activo"
+                [class.bg-danger]="!mesero.activo"
+              >
+                {{ mesero.activo ? 'Activo' : 'Inactivo' }}
+              </span>
+            </td>
+            <td>
+              <button
+                class="btn btn-danger btn-sm"
+                [disabled]="!mesero.activo"
+                (click)="eliminarMesero(mesero._id)"
+              >
+                Desactivar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-  
-  <table class="table mt-4">
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Email</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Aquí se desplegarían los meseros obtenidos -->
-
-        <td></td>
-        <td></td>
-        <td>
-          <button class="btn btn-warning btn-sm">Editar</button>
-          <button class="btn btn-danger btn-sm">Eliminar</button>
-        </td>
-
-    </tbody>
-  </table>
-  
+</div>

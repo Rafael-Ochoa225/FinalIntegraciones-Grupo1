@@ -1,14 +1,53 @@
-<div class="form-group">
-    <label for="orderId">ID de la Orden</label>
-    <input type="number" class="form-control" id="orderId" placeholder="Ingresa el ID de la orden">
-    <button type="button" class="btn btn-primary mt-2">Buscar Orden</button>
+<!-- src/app/orden-list/orden-list.component.html -->
+<div class="container mt-4">
+  <!-- Formulario de búsqueda -->
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Buscar Orden por ID de Mesa</h5>
+    </div>
+    <div class="card-body">
+      <form class="row g-3">
+        <div class="col-md-9">
+          <label for="idMesa" class="form-label">ID de la Mesa</label>
+          <input 
+            [(ngModel)]="idMesa" 
+            name="idMesa" 
+            type="number" 
+            class="form-control" 
+            placeholder="Ingrese el ID de la mesa"
+            required />
+        </div>
+        <div class="col-md-3 d-flex align-items-end gap-3">
+          <button 
+            type="button" 
+            class="btn btn-primary w-100" 
+            (click)="buscarOrden()">
+            Buscar
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-  
-  <div class="order-details" >
-    <h3>Detalles de la Orden</h3>
-    <p><strong>ID de Mesa:</strong> </p>
-    <p><strong>Platillos:</strong> </p>
-    <p><strong>Estado:</strong> </p>
-    <button type="button" class="btn btn-danger mt-2">Eliminar Orden</button>
+
+  <!-- Información de la orden -->
+  <div *ngIf="ordenes.length > 0" class="card mt-4 shadow-sm">
+    <div class="card-header bg-success text-white">
+      <h5 class="mb-0">Información de la Orden</h5>
+    </div>
+    <div class="card-body">
+      <p><strong>ID de Mesa:</strong> {{ ordenes[0].id_mesa }}</p>
+      <p><strong>Estado:</strong> {{ ordenes[0].estado }}</p>
+      <div *ngFor="let platillo of ordenes[0].platillos">
+        <p><strong>Platillo:</strong> {{ platillo.platillo_id }} | <strong>Cantidad:</strong> {{ platillo.cantidad }}</p>
+      </div>
+      <div class="d-flex gap-3">
+        <button 
+          class="btn btn-warning" 
+          (click)="actualizarEstado('entregado')">Marcar como Entregado</button>
+        <button 
+          class="btn btn-danger" 
+          (click)="eliminarOrden()">Eliminar Orden</button>
+      </div>
+    </div>
   </div>
-  
+</div>

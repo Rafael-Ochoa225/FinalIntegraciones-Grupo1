@@ -1,28 +1,53 @@
 <div class="container mt-4">
-    <h2>Lista de Platillos</h2>
-    <button class="btn btn-primary mb-3">Agregar Platillo</button>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Nombre</th>
-          <th>Ingredientes</th>
-          <th>Precio</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Ejemplo de Platillo</td>
-          <td>Ingredientes del platillo</td>
-          <td>10.99</td>
-          <td>
-            <button class="btn btn-warning btn-sm me-2">Editar</button>
-            <button class="btn btn-danger btn-sm">Eliminar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- Formulario de búsqueda -->
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Buscar Platillo por ID</h5>
+    </div>
+    <div class="card-body">
+      <form class="row g-3">
+        <div class="col-md-9">
+          <label for="clienteId" class="form-label">ID del Platillo</label>
+          <input 
+            #id 
+            type="text" 
+            id="clienteId" 
+            class="form-control" 
+            placeholder="Ingrese el ID del Platillo">
+        </div>
+        <div class="col-md-3 d-flex align-items-end gap-3">
+          <button 
+            type="button" 
+            class="btn btn-primary w-100" 
+            (click)="buscarPlatillo(id.value)">
+            Buscar
+          </button>
+          <button 
+            type="button" 
+            class="btn btn-primary w-100" 
+            >
+            Agregar
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-  
+
+  <!-- Información del platillo -->
+  <div *ngIf="platillo" class="card mt-4 shadow-sm">
+    <div class="card-header bg-success text-white">
+      <h5 class="mb-0">Información del Platillo</h5>
+    </div>
+    <div class="card-body">
+      <p class="fs-5"><strong>Nombre:</strong> {{ platillo.name }}</p>
+      <p><strong>Ingredientes:</strong> {{ platillo.ingredients.join(', ') }}</p>
+      <p><strong>Precio:</strong> ${{ platillo.price }}</p>
+      <p><strong>Imagen:</strong> <img [src]="platillo.images" alt="Imagen del platillo" class="img-fluid" style="max-width: 200px;"></p>
+      <div class="col-md-3 d-flex align-items-end gap-3">
+      <button type="button" 
+      class="btn btn-success w-100" >Editar</button>
+      <button type="button" 
+      class="btn btn-danger w-100 ">Eliminar</button>
+    </div>
+    </div>
+  </div>
