@@ -2,10 +2,13 @@ import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { CategoriaService } from '../../services/categoria.service'; 
 import { catetList } from '../../interfaces/categorias.interface';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-categorias',
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterLink],
   templateUrl: './categorias.component.html',
   styleUrl: './categorias.component.css'
 })

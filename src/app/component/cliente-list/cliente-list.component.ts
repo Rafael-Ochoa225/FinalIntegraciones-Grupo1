@@ -7,11 +7,12 @@ import { ClienteService } from '../../services/cliente.service';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { ClienteListModalComponent } from './cliente-list-modal/cliente-list-modal.component';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-cliente-list',
-  imports: [CommonModule, ReactiveFormsModule, ClienteListModalComponent],
+  imports: [CommonModule, ReactiveFormsModule, ClienteListModalComponent, RouterLink],
   templateUrl: './cliente-list.component.html',
   styleUrl: './cliente-list.component.css'
 })

@@ -1,0 +1,58 @@
+<!-- Main content-->
+<section class="content py-5">
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card shadow-lg w-100" style="max-width: 500px;">
+            <!-- Header -->
+            <div class="card-header bg-primary text-white text-center">
+                <div class="mb-3">
+                    <i class="bi bi-unlock fs-1"></i> <!-- Icono usando Bootstrap Icons -->
+                </div>
+                <h3>Login</h3>
+                <p class="mb-0">Por favor ingrese sus credenciales para ingresar.</p>
+            </div>
+
+            <!-- Body -->
+            <div class="card-body">
+                <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+                    <!-- Username Field -->
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" formControlName="username" placeholder="example@gmail.com" 
+                               class="form-control" title="Please enter your username" />
+                        <div *ngIf="loginForm.get('username')?.hasError('required') 
+                                && loginForm.get('username')?.touched; else validUser">
+                            <div class="text-danger small">
+                                El Usuario <strong>es obligatorio</strong>
+                            </div>
+                        </div>
+                        <ng-template #validUser>
+                            <div class="form-text">Ingrese su correo</div>
+                        </ng-template>
+                    </div>
+<!-- Password Field -->
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" formControlName="password" placeholder="**" 
+                               class="form-control" title="Please enter your password" />
+                        <div *ngIf="loginForm.get('password')?.hasError('required') 
+                                && loginForm.get('password')?.touched; else validPassword">
+                            <div class="text-danger small">
+                                El password <strong>es obligatorio</strong>
+                            </div>
+                        </div>
+                        <ng-template #validPassword>
+                            <div class="form-text">Ingrese su password</div>
+                        </ng-template>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex justify-content-between mt-4">
+                        <button class="btn btn-primary w-100 me-2" type="submit">Login</button>
+                        <a class="btn btn-secondary w-100" [routerLink]="['/crear-user']">Nuevo Usuario</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End main content-->

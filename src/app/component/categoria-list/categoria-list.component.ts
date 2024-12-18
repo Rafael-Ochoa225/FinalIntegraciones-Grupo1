@@ -1,15 +1,16 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { catetList } from '../../interfaces/categorias.interface';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CategoriaService } from '../../services/categoria.service';
 import Swal from 'sweetalert2'
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-categoria-list',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterLink],
   templateUrl: './categoria-list.component.html',
   styleUrl: './categoria-list.component.css'
 })

@@ -1,5 +1,5 @@
 export interface Platillo {
-    id: string;
+    id?: string;
     name: string;
     ingredients: string[];
     price: number;

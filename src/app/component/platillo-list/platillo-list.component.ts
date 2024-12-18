@@ -7,10 +7,12 @@ import { PlatformState } from '@angular/platform-server';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Platillo } from '../../interfaces/platillos.interface';
+import { RouterLink } from '@angular/router';
+import { PlatilloEliminar } from '../../interfaces/eliPlatillo.interface';
 
 @Component({
   selector: 'app-platillo-list',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './platillo-list.component.html',
   styleUrl: './platillo-list.component.css'
 })
@@ -49,4 +51,17 @@ export class PlatilloListComponent {
           }
         })
   }
+  eliminarPlatillo(platillo: PlatilloEliminar): void {
+    this.platilloService.eliminarPlatillo(platillo).subscribe({
+      next: () => {
+        alert('Platillo eliminado con éxito.');
+        this.platillo = null; // Limpia el objeto después de eliminarlo
+      },
+      error: (err) => {
+        console.error('Error al eliminar el platillo:', err);
+        alert('Hubo un error al eliminar el platillo.');
+      },
+    });
+  }
+  
 }

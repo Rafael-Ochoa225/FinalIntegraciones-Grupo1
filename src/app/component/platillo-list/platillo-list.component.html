@@ -25,7 +25,7 @@
           <button 
             type="button" 
             class="btn btn-primary w-100" 
-            >
+            [routerLink]="['/platillos-create']">
             Agregar
           </button>
         </div>
@@ -44,10 +44,10 @@
       <p><strong>Precio:</strong> ${{ platillo.price }}</p>
       <p><strong>Imagen:</strong> <img [src]="platillo.images" alt="Imagen del platillo" class="img-fluid" style="max-width: 200px;"></p>
       <div class="col-md-3 d-flex align-items-end gap-3">
+      <button    type="button" 
+      class=" btn btn-success w-100" >Editar</button>
       <button type="button" 
-      class="btn btn-success w-100" >Editar</button>
-      <button type="button" 
-      class="btn btn-danger w-100 ">Eliminar</button>
+      class="btn btn-danger w-100 " (click)="eliminarPlatillo({id:platillo.id!})">Eliminar</button>
     </div>
     </div>
   </div>

@@ -7,7 +7,7 @@ import { Orden } from '../interfaces/ordenes.interface';
   providedIn: 'root'
 })
 export class OrdenesService {
-  private OrdenUrl = 'http://localhost:3000/api/ordenes';
+  private OrdenUrl = 'http://localhost:3000/api/orden';
   constructor(private http: HttpClient) { }
 
   obtenerOrden(idMesa: number): Observable<Orden> {

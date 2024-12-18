@@ -1,0 +1,57 @@
+<!-- Main content -->
+<section class="content py-5">
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card shadow-lg w-100" style="max-width: 700px;">
+            <!-- Header -->
+            <div class="card-header bg-success text-white text-center">
+                <div class="mb-3">
+                    <i class="bi bi-person-plus fs-1"></i> <!-- Icono Bootstrap Icons -->
+                </div>
+                <h3>Registro de Mesero</h3>
+                <p class="mb-0">Por favor ingrese sus datos para su registro.</p>
+            </div>
+
+            <!-- Body -->
+            <div class="card-body">
+                <form [formGroup]="createuserForm" (ngSubmit)="crearUsuario()" novalidate>
+                    <div class="row g-3">
+                        <!-- Username -->
+                        <div class="col-lg-6">
+                            <label class="form-label">Username</label>
+                            <input type="text" formControlName="username" class="form-control" placeholder="Ingrese su nombre">
+                            <div class="form-text">Ingrese su Nombre</div>
+                        </div>
+
+                        <!-- Lastname -->
+                        <div class="col-lg-6">
+                            <label class="form-label">Lastname</label>
+                            <input type="text" formControlName="lastname" class="form-control" placeholder="Ingrese su apellido">
+                            <div class="form-text">Ingrese su apellido</div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="col-lg-6">
+                            <label class="form-label">Password</label>
+                            <input type="password" formControlName="password" class="form-control" placeholder="Ingrese su contraseña">
+                            <div class="form-text">Ingrese su contraseña</div>
+                        </div>
+<!-- Repeat Password -->
+                        <!-- Email -->
+                        <div class="col-lg-12">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" formControlName="email" class="form-control" placeholder="Ingrese su correo">
+                            <div class="form-text">Ingrese su correo de contacto</div>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex justify-content-between mt-4">
+                        <button class="btn btn-success w-50 me-2" type="submit">Guardar</button>
+                        <a class="btn btn-secondary w-50" [routerLink]="['/login']">Regresar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End main content -->

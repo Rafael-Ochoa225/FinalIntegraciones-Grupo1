@@ -20,4 +20,8 @@ export class ClienteService {
   actualizarCliente(id: string, cliente: Partial<Cliente>): Observable<void> {
     return this.http.put<void>(`${this.url}/actualizar/${id}`, cliente);
   }
+
+  crearCliente(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(`${this.url}/registrar`, cliente); // POST para registrar un cliente
+  }
 }

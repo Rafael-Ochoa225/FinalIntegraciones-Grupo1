@@ -9,11 +9,12 @@ import { ClienteListComponent } from './component/cliente-list/cliente-list.comp
 import { ClienteCreateComponent } from './component/cliente-create/cliente-create.component';
 import { ClienteUpdateComponent } from './component/cliente-update/cliente-update.component';
 import { MeserosComponent } from './component/meseros/meseros.component';
-import { MeserosCreateComponent } from './component/meseros-create/meseros-create.component';
 import { MeserosUpdateComponent } from './component/meseros-update/meseros-update.component';
 import { OrdenesComponent } from './component/ordenes/ordenes.component';
 import { OrdenesCreateComponent } from './component/ordenes-create/ordenes-create.component';
 import { OrdenesUpdateComponent } from './component/ordenes-update/ordenes-update.component';
+import { CreateUserComponent } from './pages/users/create-user/create-user.component';
+import { LoginComponent } from './pages/users/login/login.component';
 
 export const routes: Routes = [
   { path: 'categoria-crear', component: CategoriaListComponent},
@@ -25,8 +26,9 @@ export const routes: Routes = [
   {path: 'cliente', component: ClienteListComponent},
   {path: 'cliente-create', component: ClienteCreateComponent},
   {path: 'cliente-update', component: ClienteUpdateComponent},
-  {path: 'meseros', component: MeserosComponent},
-  {path: 'meseros-create', component: MeserosCreateComponent},
+  {path: 'meseros', component: LoginComponent},
+  {path: 'meseros-list', component: MeserosComponent},
+  {path: 'meseros-create', component: CreateUserComponent},
   {path: 'meseros-update', component: MeserosUpdateComponent},
   {path: 'ordenes', component: OrdenesComponent},
   {path: 'ordenes-create', component: OrdenesCreateComponent},

@@ -1,23 +1,78 @@
 <div class="container mt-4">
-    <h2>Registrar Cliente</h2>
-    <form>
-      <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" id="nombre" class="form-control" placeholder="Ingrese el nombre" />
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Correo Electrónico</label>
-        <input type="email" id="email" class="form-control" placeholder="Ingrese el correo electrónico" />
-      </div>
-      <div class="mb-3">
-        <label for="telefono" class="form-label">Teléfono</label>
-        <input type="text" id="telefono" class="form-control" placeholder="Ingrese el número de teléfono" />
-      </div>
-      <div class="mb-3">
-        <label for="dni" class="form-label">DNI</label>
-        <input type="text" id="dni" class="form-control" placeholder="Ingrese el DNI" />
-      </div>
-      <button type="submit" class="btn btn-primary">Guardar</button>
-    </form>
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Registrar Cliente</h5>
+    </div>
+  <div>
   </div>
-  
+    <div class="card-body">
+      <form (ngSubmit)="registrarCliente()" #clienteForm="ngForm" class="row g-3">
+        <!-- Nombre -->
+        <div class="col-md-6">
+          <label for="name" class="form-label">Nombre</label>
+          <input 
+            type="text" 
+            id="name" 
+            class="form-control" 
+            [(ngModel)]="nuevoCliente.name" 
+            name="name" 
+            required 
+            placeholder="Ingrese el nombre del cliente">
+        </div>
+
+        <!-- Correo Electrónico -->
+        <div class="col-md-6">
+          <label for="email" class="form-label">Correo Electrónico</label>
+          <input 
+            type="email" 
+            id="email" 
+            class="form-control" 
+            [(ngModel)]="nuevoCliente.email" 
+            name="email" 
+            required 
+            placeholder="Ingrese el correo electrónico">
+        </div>
+
+        <!-- Teléfono -->
+        <div class="col-md-6">
+          <label for="tel" class="form-label">Teléfono</label>
+          <input 
+            type="text" 
+            id="tel" 
+            class="form-control" 
+            [(ngModel)]="nuevoCliente.tel" 
+            name="tel" 
+            required 
+            placeholder="Ingrese el número de teléfono">
+        </div>
+
+        <!-- DNI -->
+        <div class="col-md-6">
+          <label for="dni" class="form-label">DNI</label>
+          <input 
+            type="text" 
+            id="dni" 
+            class="form-control" 
+            [(ngModel)]="nuevoCliente.dni" 
+            name="dni" 
+            required 
+            placeholder="Ingrese el número de DNI">
+        </div>
+
+        <!-- Botón de Registrar -->
+        <div class="col-12 text-end">
+          <button 
+            type="button" 
+            class="btn btn-primary w-30 me-3"
+            [routerLink]="['/cliente']" 
+            >
+            Regresar a buscar Cliente
+          </button>
+          <button type="submit" class="btn btn-success" [disabled]="!clienteForm.valid">
+            Registrar Cliente
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
